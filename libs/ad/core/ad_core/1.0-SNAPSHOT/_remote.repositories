@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sat Oct 11 16:45:28 EDT 2014
+ad_core-1.0-SNAPSHOT.jar>=
+ad_core-1.0-SNAPSHOT.pom>=
+ad_core-1.0-SNAPSHOT.war>=
