@@ -10,7 +10,7 @@ import java.nio.charset.Charset;
 /**
  * Helper methods for dealing with JSON in unit tests.
  * 
- * @author Trey
+ * @author RD
  */
 public class TestUtil {
 

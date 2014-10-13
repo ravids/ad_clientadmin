@@ -18,14 +18,14 @@
 		<!--<level value="WARN" />-->
 	<!--</logger>-->
 
-	<!--<logger name="com.trey">-->
+	<!--<logger name="com.ad">-->
 		<!--<level value="DEBUG" />-->
 	<!--</logger>-->
 
-    <logger name="com.github.springtestdbunit">
-        <level value="DEBUG" />
-        <appender-ref ref="CONSOLE" />
-    </logger>
+    <!--<logger name="com.github.springtestdbunit">-->
+        <!--<level value="DEBUG" />-->
+        <!--<appender-ref ref="CONSOLE" />-->
+    <!--</logger>-->
 
 	<!--<root>-->
 		<!--<level value="DEBUG" />-->

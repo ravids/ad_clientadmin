@@ -24,7 +24,7 @@ import javax.sql.DataSource;
  * Database configuration. Note the 'Import' annotation in RootConfig that activates this. PropertySource and
  * Environment pair allows externalized settings.
  * 
- * @author Trey
+ * @author RD
  */
 @Configuration
 @EnableTransactionManagement

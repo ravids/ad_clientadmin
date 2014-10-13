@@ -5,12 +5,12 @@ import com.ad.core.user.domain.Person;
 /**
  * Test fixture for unit tests.
  * 
- * @author Trey
+ * @author RD
  */
 public class ControllerTestFixture {
 
 	/**
-	 * Creates a Person with id=1, userName=thoward333, firstName=Trey, lastName=Howard
+	 * Creates a Person with id=1
 	 * @return
 	 */
 	public Person createTestPerson() {

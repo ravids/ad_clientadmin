@@ -5,20 +5,19 @@ import com.ad.core.user.domain.Person;
 /**
  * Test fixture for unit tests.
  * 
- * @author Trey
+ * @author RD
  */
 public class EndToEndTestFixture {
 
 	/**
-	 * Creates a Person with id=1, userName=thoward333, firstName=Trey, lastName=Howard
-	 * @return
+	 * Creates a Person with id=1
 	 */
-	public Person createTrey() {
+	public Person createPerson() {
 		Person person = new Person();
 		person.setId(1);
-		person.setUserName("thoward333");
-		person.setFirstName("Trey");
-		person.setLastName("Howard");
+		person.setUserName("ravi333");
+		person.setFirstName("Ravi");
+		person.setLastName("Silva");
 		return person;
 	}
 

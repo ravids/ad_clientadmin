@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Import;
 /**
  * Bootstrap for service layer.
  * 
- * @author Trey
+ * @author RD
  */
 @Configuration
 @Import(DatabaseConfig.class)

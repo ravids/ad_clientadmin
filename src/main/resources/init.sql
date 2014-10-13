@@ -6,7 +6,7 @@ create table person (
 	last_name varchar(255)
 );
 
-insert into person (user_name, first_name, last_name) values ('thoward333', 'Trey', 'Howard');
+insert into person (user_name, first_name, last_name) values ('thoward333', 'ravi', 'silva');
 insert into person (user_name, first_name, last_name) values ('joeherbers', 'Joe', 'Herbers');
 insert into person (user_name, first_name, last_name) values ('jdoe', 'John', 'Doe');
 

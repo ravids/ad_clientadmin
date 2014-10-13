@@ -18,7 +18,7 @@
 		<level value="WARN" />
 	</logger>
 
-	<logger name="com.trey">
+	<logger name="com.ad">
 		<level value="DEBUG" />
 	</logger>
 
