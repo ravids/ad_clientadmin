@@ -3,9 +3,11 @@ package com.ad.clientadmin.user.controller;
 import com.ad.clientadmin.user.controller.fixture.ControllerTestFixture;
 import com.ad.clientadmin.user.springconfig.ControllerTestConfig;
 import com.ad.core.user.domain.Person;
+import com.ad.core.user.domain.User;
 import com.ad.core.user.dto.save.SavePersonRequest;
 import com.ad.core.user.exception.PersonNotFoundException;
 import com.ad.core.user.service.PersonService;
+import com.ad.core.user.service.UserService;
 import com.ad.core.user.util.DtoFactory;
 import org.junit.Before;
 import org.junit.Test;
@@ -38,20 +40,21 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class TestPersonController {
 
 	@Autowired private PersonService mockPersonService;
+    @Autowired private UserService mockUserService;
 	@Autowired private DtoFactory dtoFactory;
 
 	private MockMvc mockMvc;
 
 	@Before
 	public void setUp() {
-		mockMvc = MockMvcBuilders.standaloneSetup(new PersonController(mockPersonService, dtoFactory)).build();
+		mockMvc = MockMvcBuilders.standaloneSetup(new PersonController(mockPersonService, mockUserService, dtoFactory)).build();
 	}
 
 	@Test
 	public void test_getPersonById() throws Exception {
 		ControllerTestFixture f = new ControllerTestFixture();
-		Person person = f.createTestPerson();
-		when(mockPersonService.getPersonById(anyInt())).thenReturn(person);
+		User person = f.createTestUser();
+		when(mockUserService.getPersonById(anyInt())).thenReturn(person);
 
 		mockMvc.perform(get("/uam/{id}", 1)
 				.accept(TestUtil.APPLICATION_JSON_UTF8)
@@ -65,7 +68,7 @@ public class TestPersonController {
 	@Test
 	public void test_getPersonById_NotFound() throws Exception {
 		final String errorMessage = "Mocking 404 message";
-		when(mockPersonService.getPersonById(anyInt())).thenAnswer(new Answer<Person>() {
+		when(mockUserService.getPersonById(anyInt())).thenAnswer(new Answer<Person>() {
 			public Person answer(InvocationOnMock invocation) throws Throwable {
 				throw new PersonNotFoundException(errorMessage);
 			}

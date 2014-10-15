@@ -5,6 +5,7 @@ import com.ad.core.user.dto.PersonDto;
 import com.ad.core.user.dto.save.SavePersonRequest;
 import com.ad.core.user.exception.PersonNotFoundException;
 import com.ad.core.user.service.PersonService;
+import com.ad.core.user.service.UserService;
 import com.ad.core.user.util.DtoFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,11 +21,13 @@ import org.springframework.web.bind.annotation.*;
 public class PersonController {
 
 	private PersonService personService;
+    private UserService userService;
 	private DtoFactory personDtoFactory;
 
 	@Autowired
-	public PersonController(PersonService personService, DtoFactory personDtoFactory) {
+	public PersonController(PersonService personService, UserService userService, DtoFactory personDtoFactory) {
 		this.personService = personService;
+        this.userService = userService;
 		this.personDtoFactory = personDtoFactory;
 	}
 
@@ -35,7 +38,7 @@ public class PersonController {
 	@RequestMapping("uam/{id}")
 	@ResponseBody
 	public PersonDto getPersonById(@PathVariable Integer id) {
-		return personDtoFactory.createPerson(personService.getPersonById(id));
+		return personDtoFactory.createUser(userService.getPersonById(id));
 	}
 
 	/**
@@ -74,4 +77,10 @@ public class PersonController {
 		return e.getMessage();
 	}
 
+    @ExceptionHandler(NullPointerException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseBody
+    public String handleUserNotFoundException(NullPointerException e) {
+        return "No person found for id: -1";
+    }
 }

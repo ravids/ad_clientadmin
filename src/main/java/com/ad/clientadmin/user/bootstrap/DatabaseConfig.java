@@ -38,7 +38,7 @@ Environment env;
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "com.ad.core.user.domain.*" });
+        sessionFactory.setPackagesToScan(new String[] { "com.ad.core.user.domain" });
         sessionFactory.setHibernateProperties(hibernateProperties());
 
         return sessionFactory;
@@ -82,8 +82,9 @@ Environment env;
     Properties hibernateProperties() {
         return new Properties() {
             {
-                setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+             //   setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
                 setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
+                setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
             }
         };
     }

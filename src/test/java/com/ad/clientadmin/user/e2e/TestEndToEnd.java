@@ -5,8 +5,10 @@ import com.ad.clientadmin.user.controller.PersonController;
 import com.ad.clientadmin.user.controller.TestUtil;
 import com.ad.clientadmin.user.controller.fixture.ControllerTestFixture;
 import com.ad.core.user.domain.Person;
+import com.ad.core.user.domain.User;
 import com.ad.core.user.dto.save.SavePersonRequest;
 import com.ad.core.user.service.PersonService;
+import com.ad.core.user.service.UserService;
 import com.ad.core.user.util.DtoFactory;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
@@ -39,19 +41,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class TestEndToEnd {
 
 	@Autowired private PersonService personService;
+    @Autowired private UserService userService;
 	@Autowired private DtoFactory dtoFactory;
 	
 	private MockMvc mockMvc;
 
 	@Before
 	public void setUp() {
-		mockMvc = MockMvcBuilders.standaloneSetup(new PersonController(personService, dtoFactory)).build();
+		mockMvc = MockMvcBuilders.standaloneSetup(new PersonController(personService, userService, dtoFactory)).build();
 	}
 
 	@Test
 	public void test_getPersonById() throws Exception {
 		ControllerTestFixture f = new ControllerTestFixture();
-		Person person = f.createTestPerson();
+        User person = f.createTestUser();
 
 		mockMvc.perform(get("/uam/{id}", 1)
 				.accept(TestUtil.APPLICATION_JSON_UTF8)

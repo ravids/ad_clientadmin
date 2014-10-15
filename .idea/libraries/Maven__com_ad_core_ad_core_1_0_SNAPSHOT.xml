@@ -8,6 +8,7 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/com/ad/core/ad_core/1.0-SNAPSHOT/ad_core-1.0-SNAPSHOT-sources.jar!/" />
+      <root url="file://$PROJECT_DIR$/../ad_core/src/main/java" />
     </SOURCES>
   </library>
 </component>

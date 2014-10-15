@@ -14,9 +14,9 @@
 		<!--<level value="WARN" />-->
 	<!--</logger>-->
 
-	<!--<logger name="org.springframework">-->
-		<!--<level value="WARN" />-->
-	<!--</logger>-->
+	<logger name="org.springframework">
+		<level value="WARN" />
+	</logger>
 
 	<!--<logger name="com.ad">-->
 		<!--<level value="DEBUG" />-->
@@ -27,9 +27,9 @@
         <!--<appender-ref ref="CONSOLE" />-->
     <!--</logger>-->
 
-	<!--<root>-->
-		<!--<level value="DEBUG" />-->
-		<!--<appender-ref ref="CONSOLE" />-->
-	<!--</root>-->
+	<root>
+		<level value="DEBUG" />
+		<appender-ref ref="CONSOLE" />
+	</root>
 
 </log4j:configuration>
