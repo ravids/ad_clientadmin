@@ -8,7 +8,7 @@ import com.ad.core.user.dto.save.SavePersonRequest;
 import com.ad.core.user.exception.PersonNotFoundException;
 import com.ad.core.user.service.PersonService;
 import com.ad.core.user.service.UserService;
-import com.ad.core.user.util.DtoFactory;
+import com.ad.clientadmin.user.dto.UserDtoFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,13 +41,13 @@ public class TestPersonController {
 
 	@Autowired private PersonService mockPersonService;
     @Autowired private UserService mockUserService;
-	@Autowired private DtoFactory dtoFactory;
+	@Autowired private UserDtoFactory dtoFactory;
 
 	private MockMvc mockMvc;
 
 	@Before
 	public void setUp() {
-		mockMvc = MockMvcBuilders.standaloneSetup(new PersonController(mockPersonService, mockUserService, dtoFactory)).build();
+		mockMvc = MockMvcBuilders.standaloneSetup(new PrimaryDriverController(mockPersonService, mockUserService, dtoFactory)).build();
 	}
 
 	@Test

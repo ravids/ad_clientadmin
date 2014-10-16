@@ -1,4 +1,4 @@
-package com.ad.clientadmin.user.bootstrap;
+package com.ad.clientadmin.bootstrap;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

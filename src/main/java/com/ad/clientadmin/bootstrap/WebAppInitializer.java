@@ -1,4 +1,4 @@
-package com.ad.clientadmin.user.bootstrap;
+package com.ad.clientadmin.bootstrap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

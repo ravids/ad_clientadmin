@@ -1,22 +1,20 @@
 package com.ad.clientadmin.user.e2e;
 
-import com.ad.clientadmin.user.bootstrap.RootConfig;
-import com.ad.clientadmin.user.controller.PersonController;
+import com.ad.clientadmin.bootstrap.RootConfig;
+import com.ad.clientadmin.user.controller.PrimaryDriverController;
 import com.ad.clientadmin.user.controller.TestUtil;
 import com.ad.clientadmin.user.controller.fixture.ControllerTestFixture;
 import com.ad.core.user.domain.Person;
 import com.ad.core.user.domain.User;
-import com.ad.core.user.dto.save.SavePersonRequest;
+import com.ad.clientadmin.user.dto.UserDtoFactory;
 import com.ad.core.user.service.PersonService;
 import com.ad.core.user.service.UserService;
-import com.ad.core.user.util.DtoFactory;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -28,7 +26,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -42,13 +39,13 @@ public class TestEndToEnd {
 
 	@Autowired private PersonService personService;
     @Autowired private UserService userService;
-	@Autowired private DtoFactory dtoFactory;
+	@Autowired private UserDtoFactory dtoFactory;
 	
 	private MockMvc mockMvc;
 
 	@Before
 	public void setUp() {
-		mockMvc = MockMvcBuilders.standaloneSetup(new PersonController(personService, userService, dtoFactory)).build();
+		mockMvc = MockMvcBuilders.standaloneSetup(new PrimaryDriverController(personService, userService, dtoFactory)).build();
 	}
 
 	@Test

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 @Configuration
-@ComponentScan(basePackages = { "com.ad.core.user.util" })
+@ComponentScan(basePackages = { "com.ad.clientadmin.user.dto" })
 public class ControllerTestConfig {
 
 	@Bean

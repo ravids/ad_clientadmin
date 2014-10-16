@@ -2,12 +2,12 @@ package com.ad.clientadmin.user.controller;
 
 import com.ad.core.user.domain.Person;
 import com.ad.core.user.domain.User;
-import com.ad.core.user.dto.PersonDto;
-import com.ad.core.user.dto.save.SavePersonRequest;
+import com.ad.clientadmin.user.dto.UserDto;
+import com.ad.clientadmin.user.dto.save.SavePersonRequest;
 import com.ad.core.user.exception.PersonNotFoundException;
 import com.ad.core.user.service.PersonService;
 import com.ad.core.user.service.UserService;
-import com.ad.core.user.util.DtoFactory;
+import com.ad.clientadmin.user.dto.UserDtoFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -19,14 +19,14 @@ import org.springframework.web.bind.annotation.*;
  * @author Adapted from http://codetutr.com/2013/04/09/spring-mvc-easy-rest-based-json-services-with-responsebody/
  */
 @Controller
-public class PersonController {
+public class PrimaryDriverController {
 
 	private PersonService personService;
     private UserService userService;
-	private DtoFactory personDtoFactory;
+	private UserDtoFactory personDtoFactory;
 
 	@Autowired
-	public PersonController(PersonService personService, UserService userService, DtoFactory personDtoFactory) {
+	public PrimaryDriverController(PersonService personService, UserService userService, UserDtoFactory personDtoFactory) {
 		this.personService = personService;
         this.userService = userService;
 		this.personDtoFactory = personDtoFactory;
@@ -38,7 +38,7 @@ public class PersonController {
 	 */
 	@RequestMapping("uam/{id}")
 	@ResponseBody
-	public PersonDto getPersonById(@PathVariable Integer id) {
+	public UserDto getPersonById(@PathVariable Integer id) {
 		return personDtoFactory.createUser(userService.getPersonById(id));
 	}
 
@@ -49,7 +49,7 @@ public class PersonController {
 	 */
 	@RequestMapping(value = "uam", params = "id")
 	@ResponseBody
-	public PersonDto getPersonByIdFromParam(@RequestParam Integer id) {
+	public UserDto getPersonByIdFromParam(@RequestParam Integer id) {
 		return personDtoFactory.createPerson(personService.getPersonById(id));
 	}
 
