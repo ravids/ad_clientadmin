@@ -1,9 +1,8 @@
 package com.ad.clientadmin.user.controller;
 
-import com.ad.core.user.domain.Person;
 import com.ad.core.user.domain.User;
 import com.ad.clientadmin.user.dto.UserDto;
-import com.ad.clientadmin.user.dto.save.SavePersonRequest;
+import com.ad.clientadmin.user.dto.save.SaveDriverRequest;
 import com.ad.core.user.exception.PersonNotFoundException;
 import com.ad.core.user.service.PersonService;
 import com.ad.core.user.service.UserService;
@@ -42,16 +41,6 @@ public class PrimaryDriverController {
 		return personDtoFactory.createUser(userService.getPersonById(id));
 	}
 
-	/**
-	 * Same as above method, just showing different URL mapping
-	 * @param id
-	 * @return Returns the person with the given id.
-	 */
-	@RequestMapping(value = "uam", params = "id")
-	@ResponseBody
-	public UserDto getPersonByIdFromParam(@RequestParam Integer id) {
-		return personDtoFactory.createPerson(personService.getPersonById(id));
-	}
 
 	/**
 	 * Creates a new person.
@@ -60,7 +49,7 @@ public class PrimaryDriverController {
 	 */
 	@RequestMapping(value = "uam", method = RequestMethod.POST)
 	@ResponseBody
-	public Integer createPerson(@RequestBody SavePersonRequest request) {
+	public Integer createPerson(@RequestBody SaveDriverRequest request) {
         User person = new User();
 		person.setFirstName(request.getFirstName());
 		person.setLastName(request.getLastName());
@@ -83,6 +72,6 @@ public class PrimaryDriverController {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ResponseBody
     public String handleUserNotFoundException(NullPointerException e) {
-        return "No person found for id: -1";
+        return "No person found for i: -1";
     }
 }

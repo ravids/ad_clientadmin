@@ -12,19 +12,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserDtoFactory {
 
-	/**
-	 * Converts a domain entity to a dto.
-	 * @param domain
-	 * @return
-	 */
-	public UserDto createPerson(Person domain) {
-		UserDto dto = new UserDto();
-		dto.setId(domain.getId());
-		dto.setFullname(domain.getFirstName() + " " + domain.getLastName());
-		return dto;
-	}
-
     public UserDto createUser(User domain) {
+        //throw user not found exception
         UserDto dto = new UserDto();
         dto.setId(domain.getId());
         dto.setFullname(domain.getFirstName() + " " + domain.getLastName());

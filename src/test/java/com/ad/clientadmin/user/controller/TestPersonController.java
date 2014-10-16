@@ -82,20 +82,6 @@ public class TestPersonController {
 				.andReturn();
 	}
 
-	@Test
-	public void test_getPersonByIdFromParam() throws Exception {
-		ControllerTestFixture f = new ControllerTestFixture();
-		Person person = f.createTestPerson();
-		when(mockPersonService.getPersonById(anyInt())).thenReturn(person);
-
-		mockMvc.perform(get("/uam?id={id}", 1)
-				.accept(TestUtil.APPLICATION_JSON_UTF8)
-				)
-				.andExpect(status().isOk())
-				.andExpect(jsonPath("$.id", is(1)))
-				.andExpect(jsonPath("$.fullname", is(person.getFirstName() + " " + person.getLastName())))
-				.andReturn();
-	}
 
 	@Test
 	public void test_savePerson() throws Exception {

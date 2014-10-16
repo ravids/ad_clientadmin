@@ -5,7 +5,7 @@ package com.ad.clientadmin.user.dto.save;
  * 
  * @author RD
  */
-public class SavePersonRequest {
+public class SaveDriverRequest {
 
 	private String userName;
 	private String firstName;
