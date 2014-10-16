@@ -100,18 +100,18 @@ public class TestPersonController {
 	@Test
 	public void test_savePerson() throws Exception {
 		ControllerTestFixture f = new ControllerTestFixture();
-		Person person = f.createTestPerson();
+		User person = f.createTestUser();
 		final Integer newId = person.getId();
 		person.setId(null);
 		
 		doAnswer(new Answer<Object>() {
 			public Object answer(InvocationOnMock invocation) throws Throwable {
 				Object[] args = invocation.getArguments();
-				Person p = (Person) args[0];
+                User p = (User) args[0];
 				p.setId(newId); // emulate the successful save populating the id
 	            return "called with arguments: " + args;
 			}
-		}).when(mockPersonService).savePerson((Person) anyObject());
+		}).when(mockUserService).saveUser((User) anyObject());
 
 		SavePersonRequest spr = new SavePersonRequest();
 		spr.setUserName(person.getUserName());

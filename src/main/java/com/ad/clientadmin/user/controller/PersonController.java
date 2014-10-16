@@ -1,6 +1,7 @@
 package com.ad.clientadmin.user.controller;
 
 import com.ad.core.user.domain.Person;
+import com.ad.core.user.domain.User;
 import com.ad.core.user.dto.PersonDto;
 import com.ad.core.user.dto.save.SavePersonRequest;
 import com.ad.core.user.exception.PersonNotFoundException;
@@ -60,11 +61,12 @@ public class PersonController {
 	@RequestMapping(value = "uam", method = RequestMethod.POST)
 	@ResponseBody
 	public Integer createPerson(@RequestBody SavePersonRequest request) {
-		Person person = new Person();
+        User person = new User();
 		person.setFirstName(request.getFirstName());
 		person.setLastName(request.getLastName());
 		person.setUserName(request.getUserName());
-		personService.savePerson(person);
+		userService.saveUser(person);
+        System.out.println("after save in controller : user id's = " + person.getId());
 		return person.getId();
 	}
 	
