@@ -72,6 +72,6 @@ public class PrimaryDriverController {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ResponseBody
     public String handleUserNotFoundException(NullPointerException e) {
-        return "No person found for i: -1";
+        return "No person found for id: -1";
     }
 }
