@@ -2,18 +2,22 @@
 
 /* App Module */
 
-var addressbookApp = angular.module('addressbookApp', [
+var clientadminApp = angular.module('clientadminApp', [
 	'ngRoute',
-	'addressbookControllers'
+	'clientadminControllers'
 ]);
 
-addressbookApp.config(['$routeProvider',
+clientadminApp.config(['$routeProvider',
 	function($routeProvider) {
 		$routeProvider.
 			when('/home', {
-				templateUrl: 'partials/home.html',
+				templateUrl: 'partials/user.html',
 				controller: 'HomeCtrl'
 			}).
+            when('/company', {
+                templateUrl: 'partials/company.html',
+                controller: 'CompanyCtrl'
+            }).
 			otherwise({
 				redirectTo: '/home'
 			});

@@ -1,12 +1,12 @@
-package com.ad.clientadmin.user.controller;
+package com.ad.clientadmin.company.controller;
 
-import com.ad.clientadmin.user.dto.save.SaveDriverRequest;
+import com.ad.clientadmin.company.dto.CompanyDto;
+import com.ad.clientadmin.company.dto.CompanyDtoFactory;
+import com.ad.clientadmin.company.dto.save.SaveCompanyRequest;
+import com.ad.core.model.company.domain.Company;
 import com.ad.core.model.company.service.CompanyService;
-import com.ad.core.model.user.domain.User;
 import com.ad.clientadmin.user.dto.UserDto;
 import com.ad.core.model.user.exception.UserNotFoundException;
-import com.ad.core.model.user.service.UserService;
-import com.ad.clientadmin.user.dto.UserDtoFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -18,26 +18,25 @@ import org.springframework.web.bind.annotation.*;
  * @author Adapted from http://codetutr.com/2013/04/09/spring-mvc-easy-rest-based-json-services-with-responsebody/
  */
 @Controller
-public class PrimaryDriverController {
+public class CompanyController {
 
-    private UserService userService;
     private CompanyService companyService;
-	private UserDtoFactory personDtoFactory;
+	private CompanyDtoFactory companyDtoFactory;
 
 	@Autowired
-	public PrimaryDriverController(UserService userService, UserDtoFactory personDtoFactory) {
-        this.userService = userService;
-		this.personDtoFactory = personDtoFactory;
+	public CompanyController(CompanyService companyService, CompanyDtoFactory personDtoFactory) {
+        this.companyService = companyService;
+		this.companyDtoFactory = personDtoFactory;
 	}
 
 	/**
 	 * @param id
 	 * @return Returns the person with the given id.
 	 */
-	@RequestMapping("uam/{id}")
+	@RequestMapping("company/{id}")
 	@ResponseBody
-	public UserDto getPersonById(@PathVariable Integer id) {
-		return personDtoFactory.createUser(userService.getUserById(id));
+	public CompanyDto getPersonById(@PathVariable Integer id) {
+		return companyDtoFactory.createCompany(companyService.getCompanyById(id));
 	}
 
 
@@ -46,16 +45,14 @@ public class PrimaryDriverController {
 	 * @param request
 	 * @return Returns the id for the new person.
 	 */
-	@RequestMapping(value = "uam", method = RequestMethod.POST)
+	@RequestMapping(value = "company", method = RequestMethod.POST)
 	@ResponseBody
-	public Integer createPerson(@RequestBody SaveDriverRequest request) {
-        User person = new User();
-		person.setFirstName(request.getFirstName());
-		person.setLastName(request.getLastName());
-		person.setUserName(request.getUserName());
-		userService.saveUser(person);
-        System.out.println("after save in controller : user id's = " + person.getId());
-		return person.getId();
+	public Integer createPerson(@RequestBody SaveCompanyRequest request) {
+        Company company = new Company();
+        company.setName(request.getCompanyName());
+        companyService.saveCompany(company);
+        System.out.println("after save in controller : company id's = " + company.getId());
+		return company.getId();
 	}
 	
 	// --- Error handlers
@@ -71,6 +68,6 @@ public class PrimaryDriverController {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ResponseBody
     public String handleUserNotFoundException(NullPointerException e) {
-        return "No person found for id: -1";
+        return "No company found for id: -1";
     }
 }

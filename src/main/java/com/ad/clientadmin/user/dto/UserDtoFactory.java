@@ -1,7 +1,6 @@
 package com.ad.clientadmin.user.dto;
 
-import com.ad.core.user.domain.Person;
-import com.ad.core.user.domain.User;
+import com.ad.core.model.user.domain.User;
 import org.springframework.stereotype.Component;
 
 /**

@@ -11,3 +11,6 @@ insert into product_orders (prod_id, first_name, last_name) values (2, 'Janee', 
 insert into product_orders (prod_id, first_name, last_name) values ('3, 'John', 'Doe');
 
 select * from product_orders;
+
+
+-- CREATE DATABASE AD_Main_Ravi DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;

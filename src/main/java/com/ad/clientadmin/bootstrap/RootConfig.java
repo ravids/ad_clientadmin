@@ -11,7 +11,8 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @Import(DatabaseConfig.class)
-@ComponentScan(basePackages = { "com.ad.core.user.service", "com.ad.core.user.dao","com.ad.core.dao.mysql.user", "com.ad.clientadmin.user.dto" })
+//@ComponentScan(basePackages = { "com.ad.core", "com.ad.clientadmin" })
+@ComponentScan(basePackages = { "com.ad.core.model.user", "com.ad.core.model.company","com.ad.core.dao.sql.*", "com.ad.clientadmin.*.dto" })
 public class RootConfig {
 
 }

@@ -2,15 +2,15 @@
 
 /* Controllers */
 
-var addressbookControllers = angular.module('addressbookControllers', []);
+var clientadminControllers = angular.module('clientadminControllers', []);
 
-addressbookControllers.controller('HomeCtrl', ['$rootScope', '$scope', '$routeParams', '$http',
+clientadminControllers.controller('HomeCtrl', ['$rootScope', '$scope', '$routeParams', '$http',
 	function($rootScope, $scope, $routeParams, $http) {
-		$scope.createPerson = function() {
-			console.log('BEGIN createPerson');
+		$scope.createUser = function() {
+			console.log('BEGIN createUser');
 			
 			$http.post('api/uam', {
-					"userName": $scope.userName
+                    "userName": $scope.userName
 					,"firstName": $scope.firstName
 					,"lastName": $scope.lastName
 			})
@@ -26,8 +26,8 @@ addressbookControllers.controller('HomeCtrl', ['$rootScope', '$scope', '$routePa
 			});
 		};
 		
-		$scope.searchPerson = function() {
-			$http.get('api/uam/' + $scope.searchPersonId)
+		$scope.searchUser = function() {
+			$http.get('api/uam/' + $scope.searchUserId)
 			.success(function(data, status, headers, config) {
 				console.log('data = ' , data);
 				$scope.person = data;
@@ -37,4 +37,37 @@ addressbookControllers.controller('HomeCtrl', ['$rootScope', '$scope', '$routePa
 			});
 		};
 	}
+]);
+
+
+
+clientadminControllers.controller('CompanyCtrl', ['$rootScope', '$scope', '$routeParams', '$http',
+    function($rootScope, $scope, $routeParams, $http) {
+        $scope.createCompany = function() {
+            console.log('BEGIN createCompany');
+
+            $http.post('api/company', {
+                "companyName": $scope.companyName
+            })
+                .success(function(data, status, headers, config) {
+                    console.log('data = ' , data);
+                    $scope.companyName = '';
+                    $scope.newCompanyId = data;
+                })
+                .error(function(data, status, headers, config) {
+                    console.log('error: data = ' , data);
+                });
+        };
+
+        $scope.searchCompany = function() {
+            $http.get('api/company/' + $scope.searchCompanyId)
+                .success(function(data, status, headers, config) {
+                    console.log('data = ' , data);
+                    $scope.company = data;
+                })
+                .error(function(data, status, headers, config) {
+                    console.log('error: data = ' , data);
+                });
+        };
+    }
 ]);

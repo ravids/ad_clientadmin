@@ -4,7 +4,7 @@
 
 	<groupId>com.ad.clientadmin</groupId>
 	<artifactId>clientadmin</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>${ad.version}</version>
 	<packaging>war</packaging>
 
 	<name>Client Admin Suite</name>
@@ -17,6 +17,7 @@
 		<jetty.version>9.0.2.v20130417</jetty.version>
 		<slf4j.version>1.6.1</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
+        <ad.version>1.0-SNAPSHOT</ad.version>
 	</properties>
 
 	<dependencies>
@@ -100,9 +101,12 @@
         <dependency>
             <groupId>com.ad.core</groupId>
             <artifactId>ad_core</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <!--<scope>system</scope>-->
-            <!--<systemPath>/home/ravi/.m2/repository/com/ad/core/ad_core/1.0-SNAPSHOT/ad_core-1.0-SNAPSHOT.jar</systemPath>-->
+            <version>${ad.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ad.framework</groupId>
+            <artifactId>ad_framework</artifactId>
+            <version>${ad.version}</version>
         </dependency>
 		<!-- ********** J2EE ********** -->
 		<dependency>
@@ -224,7 +228,7 @@
         <repository>
             <id>MyRepo</id>
             <name>MyProjectRepo</name>
-            <url>file://${project.basedir}/libs</url>
+            <url>/home/ravindra/.m2/repository</url>
         </repository>
 
         <repository>

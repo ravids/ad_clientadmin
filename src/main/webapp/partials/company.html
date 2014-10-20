@@ -1,0 +1,22 @@
+<form ng-submit="createCompany()">
+	<p>Create a new company:</p>
+    <p>
+        Company Name: <input ng-model="companyName" />
+    </p>
+	<input type="submit" />
+	
+	<p ng-show="newCompanyId">
+		Company created with id: {{newCompanyId}}
+	</p>
+</form>
+
+<hr />
+
+<div>
+	<p>Find a company by id:</p>
+	<form ng-submit="searchCompany()">
+		<input ng-model="searchCompanyId" />
+	</form>
+
+	<div class="searchOutput">{{company | json}}</div>
+</div>

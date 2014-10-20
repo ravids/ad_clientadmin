@@ -1,12 +1,13 @@
-package com.ad.clientadmin.user.e2e;
+package com.ad.clientadmin.company.e2e;
 
 import com.ad.clientadmin.bootstrap.RootConfig;
-import com.ad.clientadmin.user.controller.PrimaryDriverController;
-import com.ad.framework.util.converter.JsonConverter;
-import com.ad.clientadmin.user.controller.fixture.ControllerTestFixture;
+import com.ad.clientadmin.company.controller.CompanyController;
+import com.ad.clientadmin.company.controller.fixture.ControllerTestFixture;
+import com.ad.clientadmin.company.dto.CompanyDtoFactory;
+import com.ad.core.model.company.domain.Company;
 import com.ad.core.model.user.domain.User;
-import com.ad.clientadmin.user.dto.UserDtoFactory;
-import com.ad.core.model.user.service.UserService;
+import com.ad.core.model.company.service.CompanyService;
+import com.ad.framework.util.converter.JsonConverter;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import org.junit.Before;
@@ -32,41 +33,41 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
         DirtiesContextTestExecutionListener.class,
         TransactionalTestExecutionListener.class,
         DbUnitTestExecutionListener.class })
-@DatabaseSetup("personData.xml")
+@DatabaseSetup("companyData.xml")
 public class TestEndToEnd {
 
-    @Autowired private UserService userService;
-	@Autowired private UserDtoFactory dtoFactory;
+    @Autowired private CompanyService companyService;
+	@Autowired private CompanyDtoFactory dtoFactory;
 	
 	private MockMvc mockMvc;
 
 	@Before
 	public void setUp() {
-		mockMvc = MockMvcBuilders.standaloneSetup(new PrimaryDriverController(userService, dtoFactory)).build();
+		mockMvc = MockMvcBuilders.standaloneSetup(new CompanyController(companyService, dtoFactory)).build();
 	}
 
 	@Test
-	public void test_getPersonById() throws Exception {
+	public void test_getCompanyById() throws Exception {
 		ControllerTestFixture f = new ControllerTestFixture();
-        User person = f.createTestUser();
+        Company company = f.createTestCompany();
 
-		mockMvc.perform(get("/uam/{id}", 1)
+		mockMvc.perform(get("/company/{id}", 1)
 				.accept(JsonConverter.APPLICATION_JSON_UTF8)
 				)
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.id", is(1)))
-				.andExpect(jsonPath("$.fullname", is(person.getFirstName() + " " + person.getLastName())))
+				.andExpect(jsonPath("$.name", is(company.getName())))
 				.andReturn();
 	}
 
 	@Test
-	public void test_getPersonById_NotFound() throws Exception {
+	public void test_getCompanyById_NotFound() throws Exception {
 		Integer badId = -1;
-		mockMvc.perform(get("/uam/{id}", badId)
+		mockMvc.perform(get("/company/{id}", badId)
 				.accept(JsonConverter.APPLICATION_JSON_UTF8)
 				)
 				.andExpect(status().isNotFound())
-				.andExpect(content().string("No person found for id: " + badId))
+				.andExpect(content().string("No company found for id: " + badId))
 				.andReturn();
 	}
 

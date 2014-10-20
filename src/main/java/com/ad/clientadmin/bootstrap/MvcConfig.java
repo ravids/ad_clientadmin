@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.ad.clientadmin.user.controller")
+@ComponentScan(basePackages = "com.ad.clientadmin")
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
 }

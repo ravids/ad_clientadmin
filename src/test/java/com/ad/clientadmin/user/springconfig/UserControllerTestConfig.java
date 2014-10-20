@@ -1,7 +1,6 @@
 package com.ad.clientadmin.user.springconfig;
 
-import com.ad.core.user.service.PersonService;
-import com.ad.core.user.service.UserService;
+import com.ad.core.model.user.service.UserService;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
@@ -11,13 +10,7 @@ import org.springframework.context.annotation.Scope;
 
 @Configuration
 @ComponentScan(basePackages = { "com.ad.clientadmin.user.dto" })
-public class ControllerTestConfig {
-
-	@Bean
-	@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-	public PersonService mockPersonService() {
-		return Mockito.mock(PersonService.class);
-	}
+public class UserControllerTestConfig {
 
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
