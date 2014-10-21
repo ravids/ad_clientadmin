@@ -36,15 +36,14 @@
     <orderEntry type="library" scope="TEST" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
     <orderEntry type="library" name="Maven: commons-dbcp:commons-dbcp:1.2.2" level="project" />
     <orderEntry type="library" name="Maven: commons-pool:commons-pool:1.3" level="project" />
-    <orderEntry type="library" name="Maven: javax.persistence:persistence-api:1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:4.1.9.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:4.2.8.Final" level="project" />
     <orderEntry type="library" name="Maven: antlr:antlr:2.7.7" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.1.0.GA" level="project" />
-    <orderEntry type="library" name="Maven: org.javassist:javassist:3.17.1-GA" level="project" />
-    <orderEntry type="library" name="Maven: org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:1.0.0.Final" level="project" />
     <orderEntry type="library" name="Maven: dom4j:dom4j:1.6.1" level="project" />
-    <orderEntry type="library" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:4.0.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.javassist:javassist:3.18.1-GA" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:1.0.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:4.0.2.Final" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:3.2.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:3.2.6.RELEASE" level="project" />
@@ -52,6 +51,8 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:3.2.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.9" level="project" />
     <orderEntry type="library" name="Maven: com.ad.core:ad_core:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: javax.persistence:persistence-api:1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-entitymanager:4.2.8.Final" level="project" />
     <orderEntry type="library" name="Maven: org.hsqldb:hsqldb:2.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.6.1" level="project" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
@@ -63,6 +64,7 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.2.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.2.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.2.3" level="project" />
+    <orderEntry type="library" name="Maven: com.ad.framework:ad_framework:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.glassfish.extras:glassfish-embedded-all:3.0.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax:javaee-api:6.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-core:1.9.5" level="project" />
