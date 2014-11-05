@@ -30,7 +30,7 @@ import javax.sql.DataSource;
  */
 @Configuration
 @EnableTransactionManagement
-@PropertySource("jdbc.properties")
+@PropertySource("classpath:jdbc.properties")
 public class DatabaseConfig {
 
 @Autowired
