@@ -19,9 +19,15 @@
 		<log4j.version>1.2.17</log4j.version>
         <ad.version>1.1-SNAPSHOT</ad.version>
         <hibernate.version> 4.2.8.Final</hibernate.version>
+        <tomcat-dbcp.version>7.0.42</tomcat-dbcp.version>
 	</properties>
 
 	<dependencies>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-dbcp</artifactId>
+            <version>${tomcat-dbcp.version}</version>
+        </dependency>
         <!-- TESTING DEPENDENCIES -->
         <dependency>
             <groupId>org.hamcrest</groupId>
